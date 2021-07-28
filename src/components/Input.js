@@ -1,10 +1,9 @@
 import React from 'react';
 import { View, TextInput, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import styles from '../Styles/styles';
+import styles from '../styles/styles';
 
 export function Input({ placeholder, onPress, onChangeText }) {
-
     return (
         <View style={styles.containerInput}>
             <TextInput

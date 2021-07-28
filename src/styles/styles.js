@@ -1,28 +1,44 @@
-import Theme from '../Styles/Theme';
+import Theme from '../styles/Theme';
+
 export default ({
 
     container: {
+        left: 0,
         marginTop: 10,
-
-        backgroundColor: '#DEE4E4',
+        marginLeft: 0,
+        backgroundColor: '#8257E5',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-end',
-
+        borderRadius: 5,
 
     },
 
     nickname: {
+        left: 60,
+        width: 300,
+        height: 25,
         paddingLeft: 0,
         fontSize: 17,
-        fontFamily: Theme.fonts.rebotoRegular,
+        color: '#fff'
+
     },
 
     btn: {
-        height: 55,
+        height: 60,
         padding: 15,
         borderLeftWidth: 0.5,
+        marginLeft: 0,
 
+
+    },
+
+    avatar: {
+        left: 50,
+        width: 50,
+        height: 50,
+        borderRadius: 90,
+        backgroundColor: '#FFFFFF',
     },
 
     containerInput: {
@@ -53,6 +69,7 @@ export default ({
         backgroundColor: '#FFFFFF',
         borderLeftWidth: 0.5,
         borderLeftColor: 'gray',
+
     }
 
 });
