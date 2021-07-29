@@ -31,6 +31,16 @@ export function Details({ route }) {
         }
     }
 
+    async function removeItemValue(id) {
+        try {
+            await AsyncStorage.removeItem(id);
+            return true;
+        }
+        catch (exception) {
+            return false;
+        }
+    }
+
     useEffect(() => {
         const { user } = route.params;
         carregarUser(user);
@@ -68,7 +78,7 @@ export function Details({ route }) {
                 </View>
             </View>
             <View style={styles.btn}>
-                <TouchableOpacity style={styles.btn1} >
+                <TouchableOpacity style={styles.btn1} onPress={() => { removeItemValue(user.id); }}>
                     <Text style={styles.btnTitle}>Remover</Text>
                 </TouchableOpacity>
             </View>

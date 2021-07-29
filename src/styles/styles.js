@@ -58,7 +58,6 @@ export default ({
         backgroundColor: '#FFFFFF',
         borderLeftWidth: 0.5,
         borderLeftColor: 'gray',
-
     },
     title: {
         fontSize: 30,
