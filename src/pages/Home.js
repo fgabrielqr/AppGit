@@ -9,7 +9,7 @@ import styles from '../styles/styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function Home({ navigation }) {
-  const keyAsyncStorage = "@user:contatos";
+  const keyAsyncStorage = "@gitnetwork:users";
   const [nickname, setNickname] = useState('');
   const [users, setUsers] = useState([]);
 
@@ -49,17 +49,17 @@ export function Home({ navigation }) {
   async function loadData() {
     try {
       const retorno = await AsyncStorage.getItem(keyAsyncStorage);
-      const teste = JSON.parse(retorno)
-      console.log(teste);
-      setUsers(teste || []);
+      const data = JSON.parse(retorno)
+      console.log(data);
+      setUsers(data || []);
     } catch (error) {
       Alert.alert("Erro na leitura dos dados");
     }
   }
 
   useEffect(() => {
-    loadData();
-  }, []);
+    navigation.addListener('focus', () => loadData());
+  }, [navigation]);
 
   return (
     <View style={GlobalStyles.container}>
@@ -71,7 +71,7 @@ export function Home({ navigation }) {
       <FlatList data={users}
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
-          <ItemUser name={item.login} onPress={() => navigationDetails(item.login)} />
+          <ItemUser name={item.login} avatar={item.avatar_url} onPress={() => navigationDetails(item.login)} />
         )} />
     </View>
   );
