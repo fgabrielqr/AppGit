@@ -8,7 +8,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function Details({ navigation, route }) {
-    const keyAsyncStorage = "@gitnetwork:users";
+    const keyAsyncStorage = "@appgit:users";
     const [user, setUser] = useState({});
     async function carregarUser(nickname) {
         try {

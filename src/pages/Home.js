@@ -9,7 +9,7 @@ import styles from '../styles/styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function Home({ navigation }) {
-  const keyAsyncStorage = "@gitnetwork:users";
+  const keyAsyncStorage = "@appgit:users";
   const [nickname, setNickname] = useState('');
   const [users, setUsers] = useState([]);
 
