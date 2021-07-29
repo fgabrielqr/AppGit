@@ -1,7 +1,6 @@
 import Theme from '../styles/Theme';
 
 export default ({
-
     container: {
         left: 0,
         marginTop: 10,
@@ -11,9 +10,7 @@ export default ({
         alignItems: 'center',
         justifyContent: 'flex-end',
         borderRadius: 5,
-
     },
-
     nickname: {
         left: 60,
         width: 300,
@@ -21,18 +18,13 @@ export default ({
         paddingLeft: 0,
         fontSize: 17,
         color: '#fff'
-
     },
-
     btn: {
         height: 60,
         padding: 15,
         borderLeftWidth: 0.5,
         marginLeft: 0,
-
-
     },
-
     avatar: {
         left: 50,
         width: 50,
@@ -40,7 +32,6 @@ export default ({
         borderRadius: 90,
         backgroundColor: '#FFFFFF',
     },
-
     containerInput: {
         marginTop: 40,
         marginBottom: 100,
@@ -52,7 +43,6 @@ export default ({
         alignItems: 'center',
         borderRadius: 5,
     },
-
     input: {
         flex: 1,
         height: '100%',
@@ -62,7 +52,6 @@ export default ({
         backgroundColor: '#FFFFFF',
         borderRadius: 5,
     },
-
     btn1: {
         height: 55,
         padding: 15,
@@ -70,6 +59,14 @@ export default ({
         borderLeftWidth: 0.5,
         borderLeftColor: 'gray',
 
+    },
+    title: {
+        fontSize: 30,
+        color: Theme.colors.primary,
+    },
+    userLogo: {
+        width: 145,
+        height: 145,
+        borderRadius: 90,
     }
-
 });

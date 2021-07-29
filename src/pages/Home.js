@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, StyleSheet, Text, View, Keyboard, Image } from 'react-native';
+import { FlatList, Text, View, Keyboard, Image } from 'react-native';
 import GlobalStyles from '../styles/GlobalStyles';
 import { Input } from '../components/Input'
 import { AntDesign } from '@expo/vector-icons';
 import api from '../services/api';
 import { ItemUser } from '../components/ItemUser';
-import Theme from '../styles/Theme';
+import styles from '../styles/styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function Home({ navigation }) {
@@ -13,21 +13,14 @@ export function Home({ navigation }) {
   const [nickname, setNickname] = useState('');
   const [users, setUsers] = useState([]);
 
-  //Navegação
   function navigationDetails(login) {
     navigation.navigate('Details', { user: login });
   }
 
-  //função assincrona para buscar um user na api 
   async function handleSearchUser() {
     try {
-      //reponse vai receber o user  pesquisado 
       response = await api.get('/users/' + nickname);
-
-      //atribuinto ao data o response 
       const { data } = response;
-
-      //objeto com os atributos id, nome e login
       const obj = {
         id: data.id,
         nome: data.name,
@@ -35,7 +28,6 @@ export function Home({ navigation }) {
         avatar_url: data.avatar_url,
       }
 
-      //vetor para armazenar  
       const vetData = [...users, obj];
 
       try {
@@ -43,7 +35,6 @@ export function Home({ navigation }) {
       } catch (error) {
         Alert.alert("Erro na gravação de contatos");
       }
-
 
       Keyboard.dismiss();
       setNickname('');
@@ -55,7 +46,6 @@ export function Home({ navigation }) {
     }
   }
 
-  //metodo load data para carregar os dados salvos 
   async function loadData() {
     try {
       const retorno = await AsyncStorage.getItem(keyAsyncStorage);
@@ -67,11 +57,9 @@ export function Home({ navigation }) {
     }
   }
 
-  //useEffect para chamar o metodo/function de load
   useEffect(() => {
     loadData();
   }, []);
-
 
   return (
     <View style={GlobalStyles.container}>
@@ -85,23 +73,6 @@ export function Home({ navigation }) {
         renderItem={({ item }) => (
           <ItemUser name={item.login} onPress={() => navigationDetails(item.login)} />
         )} />
-
     </View>
   );
 }
-
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 30,
-    color: Theme.colors.primary,
-  },
-  userLogo: {
-    width: 145,
-    height: 145,
-    borderRadius: 90,
-  }
-})
-
-
-

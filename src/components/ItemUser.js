@@ -3,8 +3,6 @@ import { Text, TouchableOpacity, View, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/styles';
 
-
-
 export function ItemUser({ name, onPress }) {
     return (
         <View style={styles.container}>
